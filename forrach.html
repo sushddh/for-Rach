@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine’s Day Rachita 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff4e8a, #ff9ecf, #ffd6ec);
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 50px 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 25px #fff, 0 0 40px #ffb6d9; }
+}
+
+.typing {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 30px auto;
+    border-right: 2px solid white;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #ff2e7a;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ffe6f2;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.3rem;
+}
+
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    color: white;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Valentine’s Day Rachita 💘</h1>
+
+    <div class="typing" id="letter"></div>
+
+    <button onclick="showSurprise()">Open My Heart 💌</button>
+
+    <div class="hidden" id="surprise">
+        💖 You are my today.  
+        💖 You are my tomorrow.  
+        💖 You are my always.  
+
+        No matter the distance,  
+        my heart chose you —  
+        and it will keep choosing you.  
+
+        Will you stay with me forever? 💍✨
+    </div>
+</div>
+
+<script>
+const message = `Rachita,
+
+Before you, love was just a word.
+With you, it became my favorite feeling.
+
+Even with miles between us,
+you make my world warmer,
+my days brighter,
+and my heart calmer.
+
+If distance is a test,
+then I promise —
+I will pass it every single day
+just to reach you.
+
+Happy Valentine’s Day to the girl
+who owns my heart completely. 💖`;
+
+let i = 0;
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("letter").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+typeWriter();
+
+function showSurprise() {
+    document.getElementById("surprise").style.display = "block";
+}
+
+/* Floating hearts */
+setInterval(function() {
+    var heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 6000);
+}, 400);
+</script>
+
+</body>
+</html>
