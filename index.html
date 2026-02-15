@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Rachita 💗</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9ecf, #ffd6ec);
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+p {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #ff4da6;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ffe6f2;
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    color: white;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Hi Rachita 💗</h1>
+    <p>
+        This little corner of the internet is only for you.  
+        Different cities. Same heart.  
+        Every day with you — even from far away — is my favorite.
+    </p>
+
+    <button onclick="showMessage()">Click Me 💌</button>
+
+    <div class="hidden-message" id="secret">
+        I am so lucky to have you.  
+        One day the distance will be zero. ✨  
+        I love you more than words can explain 💕
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("secret").style.display = "block";
+}
+
+/* Create floating hearts */
+setInterval(function() {
+    var heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 6000);
+}, 500);
+</script>
+
+</body>
+</html>
