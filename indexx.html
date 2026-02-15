@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Rachita 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff4e8a, #ff9ecf);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Password Screen */
+#password-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: white;
+    color: #ff2e7a;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Main Content */
+#main-content {
+    display: none;
+    padding: 40px 20px;
+}
+
+.typing {
+    max-width: 600px;
+    margin: 20px auto;
+    white-space: pre-wrap;
+}
+
+/* Proposal Screen */
+#proposal-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: black;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.big-text {
+    font-size: 2rem;
+    margin: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="password-screen">
+    <h1>This is only for Rachita 💖</h1>
+    <p>Enter our secret password 💌</p>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button onclick="checkPassword()">Unlock My Heart</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+    <h1>Happy Valentine’s Day Rachita 💘</h1>
+    <div class="typing" id="letter"></div>
+    <button onclick="startProposal()">One More Thing… 💍</button>
+</div>
+
+<!-- PROPOSAL SCREEN -->
+<div id="proposal-screen">
+    <div class="big-text">Rachita…</div>
+    <div class="big-text">No matter the distance.</div>
+    <div class="big-text">No matter the time.</div>
+    <div class="big-text">My heart chose you.</div>
+    <div class="big-text">And it will always choose you.</div>
+    <div class="big-text">Will you stay with me forever? 💍✨</div>
+    <button onclick="celebrate()">YES 💖</button>
+</div>
+
+<script>
+const correctPassword = "iloveyourachita"; // CHANGE THIS PASSWORD
+
+function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    if (input === correctPassword) {
+        document.getElementById("password-screen").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+        typeWriter();
+    } else {
+        alert("Wrong password 💔 Try again.");
+    }
+}
+
+const message = `Rachita,
+
+Before you, love was just a word.
+With you, it became my entire world.
+
+Even across miles,
+you are my comfort,
+my peace,
+my favorite notification,
+and my safest place.
+
+If loving you is a journey,
+I never want the destination.
+
+Happy Valentine’s Day to the girl
+who owns my heart completely. 💖`;
+
+let i = 0;
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("letter").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+
+function startProposal() {
+    document.getElementById("proposal-screen").style.display = "flex";
+}
+
+function celebrate() {
+    alert("You just made me the happiest person alive 💖✨");
+}
+
+/* Floating hearts */
+setInterval(function() {
+    var heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 6000);
+}, 400);
+</script>
+
+</body>
+</html>
